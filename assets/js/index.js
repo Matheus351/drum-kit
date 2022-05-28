@@ -32,8 +32,20 @@ document.addEventListener('click',e=>{
  const elemento = e.target
  if(elemento.classList.contains('key')){
      tocarSom(sons[elemento.textContent])
-     console.log(sons[elemento.textContent])
+     adicionarEfeito(elemento.textContent)
+     removerEfeito(elemento.textContent)
  }
+
  return
 })
+
+const adicionarEfeito = letra =>{
+    document.getElementById(letra).classList.add('active')
+}
+
+const removerEfeito = letra =>{
+    const div = document.getElementById(letra)
+    const removeActive = ()=>div.classList.remove('active')
+    div.addEventListener('transitionend',removeActive)
+}
 
