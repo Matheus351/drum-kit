@@ -50,6 +50,8 @@ const removerEfeito = letra =>{
     div.addEventListener('transitionend',removeActive)
 }
 
+
+
 window.addEventListener('keydown', e =>{
     let letraClicada = e.key.toUpperCase()
     if(sons.hasOwnProperty(letraClicada)){
