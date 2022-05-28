@@ -30,6 +30,7 @@ const tocarSom = som =>{
 
 document.addEventListener('click',e=>{
  const elemento = e.target
+
  if(elemento.classList.contains('key')){
      tocarSom(sons[elemento.textContent])
      adicionarEfeito(elemento.textContent)
@@ -49,3 +50,11 @@ const removerEfeito = letra =>{
     div.addEventListener('transitionend',removeActive)
 }
 
+window.addEventListener('keydown', e =>{
+    let letraClicada = e.key.toUpperCase()
+    if(sons.hasOwnProperty(letraClicada)){
+        adicionarEfeito(letraClicada)
+        tocarSom(sons[letraClicada])
+        removerEfeito(letraClicada)
+    }
+})
